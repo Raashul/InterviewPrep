@@ -22,12 +22,10 @@ public class longestSubString{
     return count;
 
   }
-  
   public static void main(String [] args){
     System.out.println(lengthOfLongestString("abcabcbb"));
     System.out.println(lengthOfLongestString("bbbbb"));
 
   }
-  
 
 }
