@@ -3,7 +3,7 @@ public class BalancedTree{
 	public static int checkHeight(TreeNode root){
 		if(root == null)
 			return 0;
-				
+
 		//Check left height
 		int leftHeight = checkHeight(root.left);\	
 		if(leftHeight == -1)
@@ -24,6 +24,11 @@ public class BalancedTree{
 
 	}
 
-	public
+	public static boolean isBalanced(TreeNode root){
+		if(checkHeight(root) == -1)
+			return false;
+		else
+			return true;
+	}
 
 }
