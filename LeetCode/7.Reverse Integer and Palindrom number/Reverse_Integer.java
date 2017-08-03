@@ -16,12 +16,18 @@ public class Reverse_Integer{
       if(reverse > Integer.MAX_VALUE || reverse < Integer.MIN_VALUE){
         return 0;
       }
-    }
-     return (int) reverse;
-  }
 
-  public static void main(String[] args){
+    }
+    return (int) reverse;
+    
+  }
+   
+
+
+public static void main(String[] args){
     System.out.println(ReverseInteger(1234));
     System.out.println(ReverseInteger(-1234));
+
   }
+
 }
