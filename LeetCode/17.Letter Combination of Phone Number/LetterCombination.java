@@ -10,8 +10,7 @@ public class LetterCombination{
 		for(int i =0; i < str.length(); i++){
 			int x = Character.getNumericValue(str.charAt(i));
 
-			while(result.peek().length()
-					==i){
+			while(result.peek().length() == i){
 				String curr = result.remove();
 				char[] arr = map[x].toCharArray();
 				for(char c: arr){
