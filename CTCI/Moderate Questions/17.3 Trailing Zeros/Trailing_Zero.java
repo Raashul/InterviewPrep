@@ -26,7 +26,7 @@ public class Trailing_Zero{
 			return -1;
 		}
 		int count = 0;
-		for(int i=5; i / 5 > 0; i *= 5){
+		for(int i=5; num / 5 > 0; i *= 5){
 			count += num / i;
 		}
 		return count;

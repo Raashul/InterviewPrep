@@ -3,7 +3,6 @@ public class RemoveDuplicates{
 	public static int[] removeDuplicates(int[] arr){
 		if(arr.length ==0)
 			return 0;
-
 		int i = 0;
 		for(int n: arr){
 			if(i==0 || n > arr[i-1]){
