@@ -14,11 +14,11 @@ public class ValidParenthesis{
 			else if(c == '['){
 				st.push(']');
 			}
-			else if(st.isEmpty() || st.pop() != c){
+			else if(st.empty() || st.pop() != c){
 				return false;
 			}
 		}
-		return st.isEmpty();
+		return st.empty();
 	}
 
 	public static void main(String[] args){
