@@ -1,10 +1,11 @@
+/*
+Given two strings, decide if one is the permutation of the other.
+*/
+
 public class Permutation{
 
-
 /*
-
 With sorting
-
 */
 	public static String permutation(String str, String str2){
 		

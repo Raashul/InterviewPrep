@@ -4,8 +4,6 @@
 	determine the minimum number of character deletions required to make a and  b
 	anagrams. Any characters can be deleted from either of the strings.
 
-
-
 */
 
 public class Solution{

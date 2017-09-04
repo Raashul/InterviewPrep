@@ -1,7 +1,6 @@
 /*
 	Given a sorted array of strings which is interspersed with empty strings, write a
-	method to find the location of given string
-
+	method to find the location of given string.
 */
 
 public class Solution{

@@ -1,29 +1,26 @@
 /*
-Write a method to sort an array of strings so that all the anagrams are next to each other
+Write a method to sort an array of strings so that all the anagrams are next 
+to each other
 */
 
 public class Solution{
 
 	public static String[] sort(String[] arr){
-
 		/*
-		
 		List          linkedlist
 		dgo -> 				|dog| -> |god|
 		act ->				|cat| -> |tac|
-		ilno - >			|lion`|9i`1
-
+		ilno - >			|lion`|
 		*/
-		
 		Hashtable<String, LinkedList<String>> hash = new Hashtable<String, LinkedList<String>>();
-		for(String str: arr){
-			String key = sortChar(str);
-			if(!hash.containsKey(key)){
-				hash.put(key, new LinkedList<String>());
+			for(String str: arr){
+				String key = sortChar(str);
+				if(!hash.containsKey(key)){
+					hash.put(key, new LinkedList<String>());
+				}
+				LinkedList<String> anagrams = hash.get(key);
+				anagrams.push(str);
 			}
-			LinkedList<String> anagrams = hash.get(key);
-			anagrams.push(str);
-		}
 
 		//Convert the hashtable into array
 		int index = 0;
@@ -53,3 +50,5 @@ public class Solution{
 		}
 	}
 }
+
+

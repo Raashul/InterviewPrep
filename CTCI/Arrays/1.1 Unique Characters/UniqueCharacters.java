@@ -1,3 +1,11 @@
+/*
+
+Implement an algorithm to determine if a string has unique characters. 
+What if you cannot use additional datastructures
+
+
+*/
+
 public class UniqueCharacters{
 
 	public static boolean checkUniqueString(String str){

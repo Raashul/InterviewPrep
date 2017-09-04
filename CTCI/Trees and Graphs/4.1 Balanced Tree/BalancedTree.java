@@ -5,7 +5,7 @@ public class BalancedTree{
 			return 0;
 
 		//Check left height
-		int leftHeight = checkHeight(root.left);\	
+		int leftHeight = checkHeight(root.left);
 		if(leftHeight == -1)
 			return -1;
 

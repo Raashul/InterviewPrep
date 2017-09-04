@@ -18,7 +18,7 @@ public class Solution{
 				x = 0;
 			}
 
-			if(1 != null){
+			if(q != null){
 				y = n1.data;
 			}
 			else{
