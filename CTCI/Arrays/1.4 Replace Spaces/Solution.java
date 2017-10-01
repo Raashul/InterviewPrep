@@ -3,28 +3,36 @@
 //you are given the "true" length of the string. (Note: if implementing in Java,please use 
 //characters  array so that you can perform this operation in place)
 
-public class ReplaceSpaces {
-	public void replaceSpaces(char[] str, int length) {
-		int spaceCount = 0, newLength; i;
-		for(int i = 0; i < length; i++) {
-			if(str[i] == ' ') {
+public class Solution {
+	public static String replaceSpaces(String s) {
+
+		int spaceCount = 0, newLength; 
+		for(int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) == ' ') {
 				spaceCount++;
 			}
 		}
+		char[] result = new char[s.length() + spaceCount *2];
+		int length = s.length();
 
 		newLength = length + spaceCount * 2;
-		str[newLength] = '\0';
+		result[newLength-1] = '\0';
 		for(int i = length - 1; i >= 0; i--) {
-			if(str[i] == ' ') {
-				str[newLength - 1] = '0';
-				str[newLength - 2] = '2';
-				str[newLength - 3] = '%';
+			if(s.charAt(i) == ' ') {
+				result[newLength - 1] = '0';
+				result[newLength - 2] = '2';
+				result[newLength - 3] = '%';
 				newLength = newLength - 3;
 			}
 			else {
-				str[newLength - 1] = str[i];
+				result[newLength - 1] = s.charAt(i);
 				newLength = newLength - 1;
 			}
 		}
+		return String.valueOf(result);
+	}
+	
+	public static void main(String [] args){
+		System.out.println(replaceSpaces("I am fb"));
 	}
 }

@@ -20,27 +20,22 @@ Output:
 
 public class Solution{
 
-	public static int dissapearNumber(int[] arr){
 
-		if(arr == null || arr.length == 0){
-			return 0;
+	public static ArrayList<Integer> dissapearNumber(int arr){
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		if(arr == null)
+			return null;
+		for(int i =0; i < arr.length; i++){
+			int value = Math.abs(arr[i]) -1;
+			if(arr[value] > 0){
+				arr[value] = -arr[value];
+			}
 		}
-		Arrays.sort(arr);
-		int j=0;
-		int[] arr1;
-
 		for(int i=0; i < arr.length; i++){
-
-			if(arr[i] == arr[i+1]){
-				break;
-			}
-		
-			while(arr[i+1] != arr[i]+1){
-				arr1[j] == arr[i]++;
+			if(arr[i] > 0){
+				result.add(i+1);
 			}
 		}
-		return arr1;
-
 	}
 
 	public static void main(String[] args){

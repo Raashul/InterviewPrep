@@ -6,8 +6,9 @@ public class Solution{
 		LinkedListNode p1, p2;
 
 		for(int i =0; i < n-1; i++){
-			if(p2 == null) return null
-				p2 = p2.next;
+			if(p2 == null)
+			 return null
+			p2 = p2.next;
 		}
 
 		while(p2.next != null){

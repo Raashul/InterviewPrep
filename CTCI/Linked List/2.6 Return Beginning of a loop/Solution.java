@@ -22,7 +22,7 @@ public class Solution{
 			slow = slow.next;
 			fast = fast.next;
 			
-		}
+		}f
 		return fast;
 	}
 }	

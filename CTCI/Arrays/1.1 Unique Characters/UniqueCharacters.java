@@ -31,6 +31,7 @@ public class UniqueCharacters{
 		System.out.println(checkUniqueString("Testing the test"));
 		System.out.println(checkUniqueString("mango"));
 		System.out.println(checkUniqueString("mM"));
+		
 
 	}
 }

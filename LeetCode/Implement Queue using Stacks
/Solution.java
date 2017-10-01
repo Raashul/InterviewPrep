@@ -16,7 +16,7 @@ public class Solution{
 	}
 	public int peek(){
 		if(st2.empty()){
-			while(st1.empty()){
+			while(!st1.empty()){
 				st2.push(s1.pop());
 			}
 		}

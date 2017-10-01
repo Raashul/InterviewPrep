@@ -1,6 +1,6 @@
 public class Solution{
 
-	public static vector<int>  searchForRange(int[] arr, int target){
+	public static vector<int>  searchForRange(int[] arr, int n, int target){
 		int i =0, j = n-1;
 		vector<int> ret(2,-1);
 
