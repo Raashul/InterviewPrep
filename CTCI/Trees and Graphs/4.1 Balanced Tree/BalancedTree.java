@@ -15,6 +15,7 @@ public class BalancedTree{
 			return -1;
 
 		int heightDiff = leftHeight - rightHeight;
+		
 		if(Math.abs(heightDiff) > 1){
 			return -1; //not balanced
 		}

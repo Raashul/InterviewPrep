@@ -9,7 +9,7 @@ public class RemoveDuplicates{
 				arr[i] = n;
 				i++;
 			}
-		}x
+		}
 		return i;
 	}
 
