@@ -44,7 +44,7 @@ ArrayList<Integer> findDuplicates(int[] arr){
   
   for(int i =0; i < arr.length; i++){
     
-    int index = Math.abs(i) - 1;
+    int index = Math.abs(arr[i]) - 1;
     
     if(arr[index] < 0){
       result.add(Math.abs(arr[i]));
