@@ -12,7 +12,7 @@ public class ATOI{
 			
 			if(str == null || str.length() == 0) return 0;
 
-			str = str.trim();
+			str = str.trim(); //removes whitespace
 
 			int sign = 1,start = 0, len = str.length();
 			long sum = 0;
@@ -33,6 +33,7 @@ public class ATOI{
 				if(!Character.isDigit(str.charAt(i))){
 					return (int) (sign * sum);
 				}
+			
 				sum = sum * 10 + str.charAt(i) - '0';
 
 				if(sign == 1 && sum > Integer.MAX_VALUE){
@@ -50,7 +51,7 @@ public class ATOI{
 
 	public static void main(String[] args){
 		System.out.println(myAtoi("-123a123"));
-		System.out.println(myAtoi("-12312312321312312"));
+		System.out.println(myAtoi("-123"));
 	}
 
 }
