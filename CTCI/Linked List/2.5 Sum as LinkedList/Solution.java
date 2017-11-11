@@ -26,7 +26,7 @@ public class Solution{
 			}
 
 			sum = x+y+carry;
-			carry = carry % 10;
+			carry = sum / 10;
 			current.next = new LinkedListNode(sum%10);
 			current = current.next;
 

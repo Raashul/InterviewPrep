@@ -10,7 +10,7 @@ public class NextNode{
 		}
 		else{
 			TreeNode current = n; 
-			TreeNode par = q.parent;
+			TreeNode par = n.parent;
 
 			while(parent != null || parent.left != current){
 				current = parent;

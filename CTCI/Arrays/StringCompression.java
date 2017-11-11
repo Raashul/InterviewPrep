@@ -15,7 +15,7 @@ public class Solution{
 		String output = "";
 		int sum = 1;
 
-		for(int i=0; i < str.length() -1; i++){
+		for(int i=0; i < str.length()-1; i++){
 
 			if(str.charAt(i) == str.charAt(i+1))
 				sum++;

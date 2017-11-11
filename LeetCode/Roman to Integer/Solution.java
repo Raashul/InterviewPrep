@@ -3,6 +3,7 @@ public int romanToInt(String s) {
     int nums[]=new int[s.length()];
     //DCXXI
     for(int i=0;i<s.length();i++){
+
         switch (s.charAt(i)){
             case 'M':
                 nums[i]=1000;
@@ -28,14 +29,13 @@ public int romanToInt(String s) {
         }
     }
 
-    //num-> {500,100,10,10,     1}
     int sum=0;
 
     for(int i=0;i<nums.length-1;i++){
         if(nums[i]<nums[i+1])
-            sum-=nums[i];
+            sum -= nums[i];
         else
-            sum+=nums[i];
+            sum += nums[i];
     }
     return sum+nums[nums.length-1];
 }

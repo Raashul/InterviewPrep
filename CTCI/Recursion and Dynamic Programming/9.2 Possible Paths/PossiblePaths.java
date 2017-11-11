@@ -1,5 +1,10 @@
 public class PossiblePaths{
-	public boolean getPaths(int x, int y, ArrayList<Point> path, HashTable<Point, Boolean> cache){
+
+	
+	public boolean getPaths(int x, int y, ArrayList<Point> path, 
+		HashTable<Point, Boolean> cache){
+
+
 		Point p = new Point(x, y);
 
 		if(cache.containsKey(p)){

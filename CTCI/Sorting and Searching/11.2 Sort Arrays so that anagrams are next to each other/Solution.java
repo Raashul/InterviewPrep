@@ -12,7 +12,8 @@ public class Solution{
 		act ->				|cat| -> |tac|
 		ilno - >			|lion`|
 		*/
-		Hashtable<String, LinkedList<String>> hash = new Hashtable<String, LinkedList<String>>();
+		Hashtable<String, LinkedList<String>> hash = 
+		new Hashtable<String, LinkedList<String>>();
 			for(String str: arr){
 				String key = sortChar(str);
 				if(!hash.containsKey(key)){

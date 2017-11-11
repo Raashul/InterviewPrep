@@ -1,20 +1,28 @@
-public class Solution{
+public boolean repeatedSubstringPattern(String str) {
 
-	public boolean repeatedSubstringPattern(String str){
-		int length = str.length();
-		StringBuilder sb = new StringBuilder();
+/*
+	a b c a b c a b c a b c
 
-		for(int i = length/2; i >= 1; i++){
-			if(length % i == 0){
-				int m = length % i;
-				String subs = str.substring(0, m);
-			
-				for(int j =0; j < m; j++){
-					sb.append(subs);
-				}
+
+length = 12
+i = 6
+	m = 2
+
+*/
+	int l = str.length();
+	for(int i=l/2;i>=1;i--) {
+
+
+		if(l%i==0) {
+			int m = l/i;
+			String subS = str.substring(0,i);
+			StringBuilder sb = new StringBuilder();
+			for(int j=0;j<m;j++) {
+				sb.append(subS);
 			}
+			if(sb.toString().equals(str)) return true;
 		}
-		return sb.toString()equals(str);
-	}
 
+	}
+	return false;
 }

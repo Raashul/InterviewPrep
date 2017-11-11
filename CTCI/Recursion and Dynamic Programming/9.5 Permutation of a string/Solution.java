@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Solution{
 
 		public static ArrayList<String> permutation(String str){
+			
 				ArrayList<String> res = new ArrayList<String>();
 				if (str.length() == 1){
 						res.add(str);

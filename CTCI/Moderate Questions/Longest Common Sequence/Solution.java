@@ -1,4 +1,5 @@
-// Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
+// Given an unsorted array of integers, find the length of the 
+//longest consecutive elements sequence.
 
 // For example,
 // Given [100, 4, 200, 1, 3, 2],
@@ -14,6 +15,15 @@ public class Solution {
 			HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 			
 			for(int n : nums) {
+
+				/*
+					n = 2
+					left = 1
+					right = 2
+					sum = 4
+					map: 100:1, 4:2, 200:1, 1:4, 3: 4, 
+					res: 4
+				*/
 	
 				if(!map.containsKey(n)) {
 						

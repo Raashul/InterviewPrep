@@ -40,7 +40,7 @@ public class LongestCommonSubstring{
 	}
 
 	public static void main(String[] args){
-		String [] arr = {"zabcde", "abc", "ab", "abcd"};
+		String [] arr = {"abcde", "abc", "ab", "abcd"};
 		
 		System.out.println(longestPrefix(arr));
 		System.out.println(longestPrefix2(arr));

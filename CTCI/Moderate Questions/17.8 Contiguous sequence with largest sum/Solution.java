@@ -11,6 +11,14 @@ public class Solution{
 		int[] arr = new int[];
 		int maxSum = 0;
 		int sum =0;
+
+		/*
+			i=4
+			sum=7
+			maxSum =7
+			hash = 6:2, 3:4
+		*/
+
 		for(int i =0; i < a.length; i++){
 			sum += a[i];
 			if(maxSum < sum){

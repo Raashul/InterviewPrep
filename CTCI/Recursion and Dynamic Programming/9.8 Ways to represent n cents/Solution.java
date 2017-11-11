@@ -1,4 +1,5 @@
 public class Solution{
+	int ways = 0;
 	public int makeChange(int n, int denoms){
 		int next_denom =0;
 		switch(denom){
@@ -15,7 +16,6 @@ public class Solution{
 			return 1;
 		}
 
-		int ways = 0;
 		for(int i =0; i * denom <= n; i++){
 			ways += makeChange(n-i*denom, next_denom);
 		}

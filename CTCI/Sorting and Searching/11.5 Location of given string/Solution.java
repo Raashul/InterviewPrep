@@ -23,6 +23,7 @@ public class Solution{
 			int right = mid +1;
 
 			while(true){
+				
 				if(left < first && right > last)
 					return -1;
 				else if(left >= first && !arr[left].isEmpty()){
@@ -36,6 +37,7 @@ public class Solution{
 				left--;
 				right++;
 			}
+
 		}
 
 		//Check for the string using compareto. Use recursion
@@ -44,7 +46,7 @@ public class Solution{
 		}
 		//arr[mid].compareTo(str) ---> str - arr[mid]
 		//if -> str - arr[mid] < 0. it means arr[mid] is a smaller value. So move right
-		//else move right
+		//else move left
 		
 		else if(arr[mid].compareTo(str) < 0){ //move right
 			return searchR(arr, str, mid + 1, last);

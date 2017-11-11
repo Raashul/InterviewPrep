@@ -6,13 +6,16 @@ public class Solution{
 		Stack<Integer> st = new Stack<Integer>();
 
 		while(fast != null && fast.next != null){
+			
 			st.push(slow.data);
 			fast = fast.next.next;
 			slow = slow.next;
 		}
+
 		if(fast != null){
 			slow = slow.next;
 		}
+
 		while(slow != null){
 			int top = st.pop().intValue();
 
