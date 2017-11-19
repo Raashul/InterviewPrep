@@ -29,7 +29,7 @@ public int maxSizeSubArr(int [] arr, int target){
     total += arr[i];
 
     if(map.contains(total - target))
-      max = Math.max(max, i - map.get(total - k));
+      max = Math.max(max, i - map.get(total - target));
     if(!map.contains(total))
       map.put(total, i);
   }
