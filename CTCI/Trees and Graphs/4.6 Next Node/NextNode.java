@@ -5,14 +5,14 @@ public class NextNode{
 		if(n==null){
 			return null;
 		}
-		if(n.parent != null || n.right != null){
+		if(n.right != null){
 			return leftMostChild(n.right);
 		}
 		else{
-			TreeNode current = n; 
+			TreeNode current = n;
 			TreeNode par = n.parent;
 
-			while(parent != null || parent.left != current){
+			while(parent != null && parent.right == current){
 				current = parent;
 				par = par.parent;
 			}
