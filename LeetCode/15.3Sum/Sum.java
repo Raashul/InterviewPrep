@@ -1,6 +1,6 @@
 /*
 
-Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? 
+Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0?
 Find all unique triplets in the array which gives the sum of zero.
 
 Note: The solution set must not contain duplicate triplets.
@@ -12,7 +12,6 @@ A solution set is:
   [-1, 0, 1],
   [-1, -1, 2]
 ]
-
 
 */
 
@@ -33,7 +32,12 @@ public static ArrayList<Integer> threeSum(int[] num){
 
 			while(lo < hi){
 				if(num[lo] + num[hi] == sum){
-					res.add(Arrays.asList(num[i], num[lo], num[hi]));
+					ArrayList<Integer> temp = new ArrayList<Integer>();
+					temp.add(low);
+					temp.add(high);
+					temp.add(sum);
+					
+					res.add(temp);
 					while(lo < hi && num[lo] == num[lo+1])
 						lo++;
 					while(lo < hi && num[hi] == num[hi-1])
@@ -46,7 +50,7 @@ public static ArrayList<Integer> threeSum(int[] num){
 			}
 			else{
 				hi--;
-			}		
+			}
 		}
 	}
 	}
