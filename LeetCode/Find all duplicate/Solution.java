@@ -2,21 +2,21 @@
 
 int[] arr = [1,2,1];
 
-1.Brute Force - 
+1.Brute Force -
   O(n^2)  ***
   O(1)
-  
+
 2. Sorting
   O(n log n) ***
   O(1)
-  
+
 3. HashMap/Hashsets
-  
+
   O(n)
   O(n) ****
 
-4. Encoding 
-  
+4. Encoding
+
   O(n)
   O(1)
 
@@ -39,25 +39,25 @@ int[] arr = [1,2,1];
 // [1,2,3]
 
 ArrayList<Integer> findDuplicates(int[] arr){
-  
-  HashMap<Integer> hash = new HashMap<Integer>();
-  
+
+  //HashMap<Integer> hash = new HashMap<Integer>();
+
   for(int i =0; i < arr.length; i++){
-    
+
     int index = Math.abs(arr[i]) - 1;
-    
     if(arr[index] < 0){
       result.add(Math.abs(arr[i]));
     }
     else{
       arr[index] = arr[index] * -1;
-    } 
+    }
   }
+
   for(int i =0; i < arr.length; i++){
   	arr[i] = Math.abs(arr[i]);
   }
-      
+
  return result;
-  
-  
+
+
 }

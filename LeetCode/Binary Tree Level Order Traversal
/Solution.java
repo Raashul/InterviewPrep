@@ -62,7 +62,6 @@ public class Solution {
 
                     currentLevel.add(current.right);
                     list.add(current.right.val);
-
                 }
 
             }

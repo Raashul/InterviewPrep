@@ -30,7 +30,9 @@ public int romanToInt(String s) {
     }
 
     int sum=0;
-
+//s = IX
+//num = [1, 10]
+//sum = -1 + 10 = 9
     for(int i=0;i<nums.length-1;i++){
         if(nums[i]<nums[i+1])
             sum -= nums[i];

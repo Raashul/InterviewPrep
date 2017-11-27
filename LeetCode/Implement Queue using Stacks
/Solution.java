@@ -14,6 +14,7 @@ public class Solution{
 	public boolean isEmpty(){
 		return st1.empty() && st2.empty();
 	}
+
 	public int peek(){
 		if(st2.empty()){
 			while(!st1.empty()){

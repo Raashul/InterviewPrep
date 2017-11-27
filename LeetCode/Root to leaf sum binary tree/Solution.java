@@ -16,6 +16,13 @@ public class Solution{
 			}
 		}
 
+		10
+		/\
+	5   15
+	/\
+1   7
+
+
 		if(sum(root.left, target-root.data, result)){
 			result.add(root);
 			return true;
