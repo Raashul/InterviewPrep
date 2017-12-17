@@ -1,8 +1,3 @@
-/*
-
-
-*/
-
 public class Solution{
 	public static HashTable<Integer,Integer> getMaxSum(int[] a){
 

@@ -21,11 +21,11 @@ public long fib(int x){
 
   long[] cache = new long[x+1];
 
-  for(int i =0; i < cache.length; i++){
+  for(int i =1; i < cache.length; i++){
     cache[i] = -1;
   }
 
-  cache[0] = 1;
+  cache[1] = 1;
 
   return fib(x, cache);
 }

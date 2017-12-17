@@ -16,7 +16,7 @@ public class longestSubString{
       count = Math.max(count, j - i + 1);
 
 
-        map.put(c, j + 1);
+      map.put(c, j + 1);
     }
     return count;
 
