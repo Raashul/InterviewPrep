@@ -61,11 +61,8 @@ public class Solution{
 			node = node.next;
 			length++;
 		}
-		
+
 		return length;
 	}
 
 }
-
-
-
