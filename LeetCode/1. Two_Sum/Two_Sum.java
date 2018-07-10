@@ -15,13 +15,8 @@
 			for(int i=0; i < nums.length; i+){
 				int complement = target - nums[i];
 				if(map.containsKey(complement)){
-					int [] arr = { map.get(complement), i };
-					return arr;
+					return new int[] {map.get(complement), i}
 				}
-				// Map[0] -> 2 , 	0
-				// Map[1] -> 7 , 	1
-				// Map[2] -> 11 , 2
-				// Map[3] -> 15 , 3
 				map.put(nums[i], i);
 			}
 

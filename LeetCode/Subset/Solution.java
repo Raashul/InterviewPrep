@@ -1,10 +1,4 @@
 
-public List<List<Integer>> subsets(int[] nums) {
-    List<List<Integer>> list = new ArrayList<>();
-    Arrays.sort(nums);
-    backtrack(list, new ArrayList<>(), nums, 0);
-    return list;
-}
 
 /*
 Given a set of distinct integers, nums, return all possible subsets (the power set).
@@ -26,18 +20,41 @@ If nums = [1,2,3], a solution is:
 ]
 */
 
-private void backtrack(List<List<Integer>> list , List<Integer> tempList,
-	int [] nums, int start){
+class Solution {
+  public static void main(String[] args){
+    
+    int[] nums = {1,2,3};
+    ArrayList<ArrayList<Integer>> result = findSubset(nums);    
+    System.out.println(result);
+  }
+  
+  public static ArrayList<ArrayList<Integer>> findSubset(int[] nums){
+    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    populateList(nums, result, new ArrayList<Integer>(), 0);
+    return result;
+  }
+  
+  public static void populateList(int[] nums, ArrayList<ArrayList<Integer>> result, ArrayList<Integer> tempList, int start){
+    
+    /*
+      Check dulicate
+      
+      if(!result.contains(new ArrayList<>(tempList))){
+       result.add(new ArrayList<>(tempList));
 
-    list.add(new ArrayList<>(tempList));
+      }
+    */
+    result.add(new ArrayList<>(tempList));
 
+    
     for(int i = start; i < nums.length; i++){
-        tempList.add(nums[i]);
-        backtrack(list, tempList, nums, i + 1);
-        tempList.remove(tempList.size() - 1);
+      tempList.add(nums[i]);
+      populateList(nums, result, tempList, i+1);
+      tempList.remove(tempList.size()-1);
     }
-
+  }
 }
+
 
 
 /*
@@ -65,4 +82,4 @@ public static void uniqueSubsets(String original, StringBuilder current,
     current.deleteCharAt(current.toString().length()-1);
 }
 
-//"rum" there are eight: "r", "ru", "rum", "u", "um", "m", "rm", "".
+//"rum" there are eight: "r", "ru", "rum", "u", "um", "m", "rm", "". 

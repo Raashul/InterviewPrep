@@ -20,10 +20,7 @@ public class MyClass {
 		for(int i: arr)
 			sum -= i;
 
-
 			return sum;
-
-	
 
     }
 }

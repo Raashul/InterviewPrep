@@ -11,23 +11,23 @@
 //purpose of space complexity analysis.)
 
 
-public int[] productExceptSelf(int[] nums){
-
-  int length = nums.length;
-  int left =1;
-  int right = 1;
-  int[] result = new int[length];
-
-  for(int i =0; i < nums.length; i++){
-    result[i] = left;
-    left *= num[i];
-  }
-
-  for(int i = length -1; i >=0; i--){
-    result[i] *= right;
-    right *= num[i];
-  }
-
-  return result;
-
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int left =1;
+        int right = 1;
+        int length = nums.length;
+        int [] res = new int[length];
+        
+        for(int i=0; i < length ; i++){
+            res[i] = left;
+            left *= nums[i];
+        }
+        
+        for(int i = length -1; i >=0; i--){
+            res[i] *= right;
+            right *= nums[i];
+        }
+        return res;
+        
+    }
 }

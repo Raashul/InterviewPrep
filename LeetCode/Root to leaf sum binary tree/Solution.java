@@ -1,6 +1,6 @@
 public class Solution{
 
-	public boolean sum(TreeNode root, int target, List<Integer>){
+	public boolean sum(TreeNode root, int target, List<Integer> result){
 		if(root == null){
 			return false;
 		}
@@ -21,6 +21,7 @@ public class Solution{
 			result.add(root);
 			return true;
 		}
+		
 		if(sum(root.right, target-root.right, result)){
 			result.add(root);
 			return true;
