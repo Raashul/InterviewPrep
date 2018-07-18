@@ -26,6 +26,7 @@ public long fib(int x){
   }
 
   cache[1] = 1;
+  cache[2] = 1;
 
   return fib(x, cache);
 }

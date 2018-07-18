@@ -12,3 +12,30 @@ public static boolean wordBreak(String str, ArrayList<String> dict){
   }
   return dp[str.length()];
 }
+
+
+//wont work for all cases
+//dict - ['leetcode', 'leet']
+// s = 'leetcode'
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int i = 0;
+        int length = s.length();
+        int j = i+1;
+        Boolean[] dp = new Boolean[length];
+        
+        while(j < length && i < j){
+            String sub = s.substring(i, j+1);            
+            if(!wordDict.contains(sub)){
+                dp[j] = false;
+                j++;
+            }
+            else{
+                dp[j] = true;
+                i = j+1;
+                j = i+1;
+            }
+        }
+        return dp[length-1];
+    }
+}

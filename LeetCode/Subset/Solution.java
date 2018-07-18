@@ -33,6 +33,9 @@ class Solution {
     populateList(nums, result, new ArrayList<Integer>(), 0);
     return result;
   }
+
+
+  
   
   public static void populateList(int[] nums, ArrayList<ArrayList<Integer>> result, ArrayList<Integer> tempList, int start){
     
