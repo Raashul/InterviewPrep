@@ -32,10 +32,10 @@ public class longestSubString{
       if(!set.contains(s.charAt(j))){
         set.add(s.charAt(j));
         j++;
-        max = Math.max(max, set.size());
+        max = Math.max(max, j - i);
       }
       else{
-        set.remove(set.remove(i));
+        set.remove(s.charAt(i));
         i++;
       }
     }

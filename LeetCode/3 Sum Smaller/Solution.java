@@ -36,9 +36,9 @@ public class Solution {
 					//if the 3 indices add to less than the target increment count
 				if(nums[i] + nums[left] + nums[right] < target) {
 
-			//increment the count by the distance between left and right because the array is 
+			//increment the count by the distance between left and right because the array is
 					//sorted
-					count += right - left;
+					count++;
 
 					//decrement right pointer
 					left++;
