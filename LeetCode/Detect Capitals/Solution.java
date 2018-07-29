@@ -14,36 +14,36 @@ Otherwise, we define that this word doesn't use capitals in a right way.
 */
 
 public class Solution {
-	
-    public boolean detectCapitalUse(String word) {
-        int capitals = 0;
-        int nonCapitals = 0;
-        int others = 0;
-        
-        for(char c: word.toCharArray()){
-            if(c >='A' && c <='Z'){
-                capitals++;
-            }
-            else if(c >='a' && c <='z'){
-                nonCapitals++;
-            }
-            else{
-                others++;
-            }
-        }
-        
-        if(others > 0){
-            return false;
-        }
-        
-        if(word.charAt(0) >= 'A' && word.charAt(0) <= 'Z'  && nonCapitals == word.length()-1){
-            return true;
-        }
-        
-        if(capitals == word.length() || nonCapitals == word.length()){
-            return true;
-        }
-        return false;
-        
+
+  public boolean detectCapitalUse(String word) {
+    int capitals = 0;
+    int nonCapitals = 0;
+    int others = 0;
+
+    for(char c: word.toCharArray()){
+      if(c >='A' && c <='Z'){
+          capitals++;
+      }
+      else if(c >='a' && c <='z'){
+          nonCapitals++;
+      }
+      else{
+          others++;
+      }
     }
+
+    if(others > 0){
+      return false;
+    }
+
+    if(word.charAt(0) >= 'A' && word.charAt(0) <= 'Z'  && nonCapitals == word.length()-1){
+      return true;
+    }
+
+    if(capitals == word.length() || nonCapitals == word.length()){
+      return true;
+    }
+    return false;
+
+  }
 }

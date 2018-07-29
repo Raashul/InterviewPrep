@@ -1,35 +1,54 @@
 /*
-mplement an iterator over a binary search tree (BST). Your iterator will be 
+mplement an iterator over a binary search tree (BST). Your iterator will be
 initialized with the root node of a BST.
 
 Calling next() will return the next smallest number in the BST.
 
-Note: next() and hasNext() should run in average O(1) time and uses O(h) memory, 
+Note: next() and hasNext() should run in average O(1) time and uses O(h) memory,
 where h is the height of the tree.
 
 */
 
-public class Solution{
-	Stack<TreeNode> st = new Stack<Integer>();
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 
+public class BSTIterator {
 
-	public Solution(TreeNode root){
-		AllLeftNodes(root.left);
-	}
+    Stack<TreeNode> st = new Stack<TreeNode>();
 
-	public int next(){
-		int current = st.pop();
-		AllLeftNodes(current.left);
-		return current.val;
-	}
+    public BSTIterator(TreeNode root) {
+        AllLeftNode(root);
+    }
 
+  public void AllLeftNode(TreeNode root){
+    while(root != null){
+      st.push(root);
+      root = root.left;
+    }
+  }
 
-	public void AllLeftNodes(TreeNode node){
-		TreeNode current = node;
+    /** @return whether we have a next smallest number */
+    public boolean hasNext() {
+        return !st.empty(); //use this
+    }
 
-		while(current != null){
-			st.push(current);
-			current = current.left;
-		}
-	}
+    /** @return the next smallest number */
+    public int next() {
+      TreeNode curr = st.pop();
+      AllLeftNode(curr.right);
+      return curr.val;
+    }
 }
+
+/**
+ * Your BSTIterator will be called like this:
+ * BSTIterator i = new BSTIterator(root);
+ * while (i.hasNext()) v[f()] = i.next();
+ */

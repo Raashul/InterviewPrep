@@ -1,4 +1,10 @@
 /*
+Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array),
+some elements appear twice and others appear once.
+
+Find all the elements that appear twice in this array.
+
+Could you do it without extra space and in O(n) runtime?
 
 int[] arr = [1,2,1];
 
@@ -23,24 +29,46 @@ int[] arr = [1,2,1];
 
 */
 
+//HashMap method
+
+import java.util.*;
+
+class Main {
+  public static void main(String[] args) {
+    int[] arr = {4,3,2,7,8,2,3,1};
+    System.out.println(findDuplicates(arr));
+  }
+
+  public static ArrayList<Integer> findDuplicates(int[] nums) {
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    ArrayList<Integer> res = new ArrayList<Integer>();
+    for(int num: nums){
+      if(!map.containsKey(num)){
+        map.put(num, 1);
+      }
+      else{
+        int count = map.get(num);
+        map.put(num, count+1);
+      }
+    }
+
+    for (Map.Entry<Integer, Integer> item : map.entrySet()) {
+
+      int key = item.getKey();
+      int value = item.getValue();
+        System.out.println(value);
+       if(value == 2){
+        res.add(key);
+      }
+    }
+    return res;
+  }
+}
 
 
-// [1,2,1,3,3]
-    index = 0
-    -1,2,1,3,3
-      index = 1
-      -1,-2,1,3,3
-      index = 0
-      result = [1]
-      index = 2
-      -1,-2,-1,3
-      index = 2
-      result = [1,3]
-// [1,2,3]
-
+//Encoding method
 ArrayList<Integer> findDuplicates(int[] arr){
 
-  //HashMap<Integer> hash = new HashMap<Integer>();
 
   for(int i =0; i < arr.length; i++){
 
