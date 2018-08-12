@@ -1,31 +1,21 @@
 public class Solution{
 
+	//without finding the length
+	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+	  //boundary check
+	  if(headA == null || headB == null) return null;
 
-//without finding the length
-	public ListNode findIntersection(ListNode node1, ListNode node2){
-		if(node1 == null || node2 == null){
-			return null;
-		}
-		ListNode headofA = node1;
-		ListNode headofB = node2;
+	  ListNode a = headA;
+	  ListNode b = headB;
 
-		while(headofA != headofB){
+	  //if a & b have different len, then we will stop the loop after second iteration
+	  while( a != b){
+	  	//for the end of first iteration, we just reset the pointer to the head of another linkedlist
+      a = a == null? headB : a.next;
+      b = b == null? headA : b.next;
+	  }
 
-			if(headofA == null){
-				headofA = node2;
-			}
-			else{
-				headofA = headofA.next;
-			}
-
-			if(headofB == null){
-				headofB = node1;
-			}
-			else{
-				headofB = headofB.next;
-			}
-		}
-		return headofA;
+	  return a;
 	}
 
 	//by finding the length
