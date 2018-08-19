@@ -1,38 +1,40 @@
-public class Solution{
 
-// 1, 2, -5,  1, 2, -1
-//
+ import java.io.*;
+import java.util.*;
+import java.util.Arrays;
 
-// i =5
-//oldIndex = 1
-//map = [0:0, 1: 1, 3:2, -2:3, -1: 4, 1:5 ]
-//sum = 1
 
-//arr = {2,-5,1,2};
 
-int[] checkSum(int [] arr){
+ class Main {
 
-  HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-  int sum = 0;
-
-  for(int i =0; i <= arr.length; i++){
-    int oldIndex = map.get(sum);
-
-    if(oldIndex == null && i == arr.length){
-      return null;
-    }
-
-    if(oldIndex == null){
-      map.put(sum, i);
-      sum += arr[i];
-    }
-    else{
-      return Arrays.copyofRange(arr, oldIndex, i);
-    }
+  public static void main(String[] args){
+    int[] arr = {1,2,-5,1,2,-1};
+    System.out.println(zeroSubArr(arr));
   }
 
-  return null;
+  public static int[] zeroSubArr(int[] arr){
+    if(arr.length ==0){
+      return null;
+    }
+    int sum = 0;
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
-}
+    for(int i =0; i <= arr.length; i++){
+      Integer oldIndex = map.get(sum);
+
+      if(oldIndex == null && i == arr.length){
+        return null;
+      }
+      else if(oldIndex == null){
+        map.put(sum, i);
+        sum += arr[i];
+      }
+      else{
+        int[] a =  Arrays.copyOfRange(arr, oldIndex, i);
+        return a;
+      }
+    }
+    return null;
+  }
 
 }

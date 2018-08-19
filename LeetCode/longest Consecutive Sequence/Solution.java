@@ -12,22 +12,7 @@ public int longestConsecutiveSubsequence(int[] arr){
   int sum = 0;
   int res = 0;
 
-// [100, 4, 200, 1, 3, 2],
-//                     ^
-//   left = 1
-//   right = 2
-//   sum = 4
-//   res = 4
-//
-//   map
-//   100 - 1
-//   4   - 1
-//   200 - 1
-//   1   - 4
-//   3   - 4
-//   4   - 2
-//   2   - 4
-//
+
   for(int i: arr){
     if(!map.contains(i)){
       left = (map.containsKey(i-1)) ? map.get(i-1) : 0;
@@ -41,4 +26,41 @@ public int longestConsecutiveSubsequence(int[] arr){
     }
   }
   return res;
+}
+
+
+
+import java.util.*;
+
+class Solution{
+  public static void main(String[] args){
+    int[] arr = {5,5,3,1};
+    System.out.println(longestCons(arr));
+  }
+
+  public static int longestCons(int[] arr){
+
+    int max = 0;
+    if(arr.length == 0) return max;
+
+    HashSet<Integer> hash = new HashSet<>();
+    for(int n: arr){
+      hash.add(n);
+    }
+
+    for(int num: hash){
+      int length = 0;
+
+      if(hash.contains(num-1)) continue;
+
+      while(hash.contains(num++)){
+        length++;
+      }
+      max = Math.max(max, length);
+    }
+
+    return max;
+
+  }
+
 }
