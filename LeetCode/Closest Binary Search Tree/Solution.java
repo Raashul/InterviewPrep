@@ -1,31 +1,43 @@
-// Given a non-empty binary search tree and a target value,
-//find the value in the BST that is closest to the target.
+class Node{
 
-// Note:
-	// Given target value is a floating point.
-	// You are guaranteed to have only one unique value in the BST that
-//is closest to the target.
+  Node left;
+  Node right;
+  int data;
+  Node(int val){
+    data = val;
+    left = null;
+    right = null;
+  }
+}
 
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
- * }
- */
+class Solution{
 
+  Node root;
 
-public int closestBinaryTreeValue(TreeNode root, TreeNode target){
-  int value = root.val;
-  TreeNode child = value > target ? root.left : root.right;
+  public static void main(String[] args){
+    Solution tree = new Solution();
+    tree.root = new Node(20);
+    tree.root.left = new Node(15);
+    tree.root.right = new Node(25);
+    tree.root.left.left = new Node(7);
+    tree.root.left.right = new Node(18);
+    tree.root.left.left.right = new Node(9);
 
-  if(child == null)
-    return value;
+    System.out.println(tree.closestBinarySearchVal(tree.root, 9));
+  }
 
-  int childValue = closestBinaryTreeValue(child, target);
+  public int closestBinarySearchVal(Node root, int target){
 
-  return Math.abs(childValue-target) < Math.abs(value-target) ? childValue : value;
+    int root_data = root.data;
+    Node child = root.data > target ? root.left : root.right;
+
+    if(child == null) return root_data;
+
+    int childVal = closestBinarySearchVal(child, target);
+
+    return Math.abs(target - childVal) > Math.abs(target - root_data) ? root_data : childVal;
+
+  }
+
 
 }

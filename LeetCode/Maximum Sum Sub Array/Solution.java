@@ -17,19 +17,20 @@ public int maximumSubArray(int [] arr){
 }
 
 class Solution {
-    public int maxSubArray(int[] nums) {
-        int max_so_far =Integer.MIN_VALUE, max_ending = 0;
-        for(int i: nums){
-            max_ending = i + max_ending;
-            if(max_ending < 0){
-                max_ending = 0;
-            }
-            else if(max_ending > max_so_far){
-                max_so_far = max_ending;
-            }
-        }
-        return max_so_far;
-    }
-}
+  public int maxSubArray(int[] nums) {
+    int tempMax = 0, res = Integer.MIN_VALUE;
+    if(nums.length == 1) return nums[0];
+    for(int num : nums){
+      tempMax = num + tempMax;
 
-Time Complexity: O(n)
+      if(tempMax > res){
+        res = tempMax;
+      }
+      if(tempMax < 0){
+        tempMax = 0;
+      }
+
+    }
+    return res;
+  }
+}

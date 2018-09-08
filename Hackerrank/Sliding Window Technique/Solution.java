@@ -10,6 +10,7 @@ Output : 700
 Input  : arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20}
          k = 4
 Output : 39
+
 We get maximum sum by adding subarray {4, 2, 10, 23}
 of size 4.
 

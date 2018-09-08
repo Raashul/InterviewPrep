@@ -18,7 +18,7 @@ public Node divide(Node root){
     runner = runner.next;
     root = root.next;
   }
-  Node toReturn = list.next;
+  Node toReturn = root.next;
   root.next = null;
   return toReturn;
 

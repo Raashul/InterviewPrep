@@ -15,25 +15,22 @@
 
 public class Solution{
   public boolean increasingTriplet(int[] nums) {
+    int first = Integer.MAX_VALUE;
+    int second = Integer.MIN_VALUE;
 
-    if(nums==null || nums.length==0)
-      return false;
-
-    int min=nums[0];
-    int secondMin=Integer.MAX_VALUE;
-
-    for(int i=1;i<nums.length;i++){
-      if(nums[i] <= min){
-        min=nums[i];
+    for(int n: nums){
+      if(n <= first) {
+        first = n;
       }
-      else if(nums[i] <= secondMin){
-        secondMin=nums[i];
+      else if(n <= second){
+        second = n;
       }
-      else if(nums[i] > secondMin){
+      else if(n > second){
         return true;
       }
-      else
+      else{
         continue;
+      }
     }
     return false;
   }

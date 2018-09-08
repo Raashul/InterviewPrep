@@ -46,4 +46,3 @@ public class Solution {
     return first + firstChar + second;
   }
 }
-9

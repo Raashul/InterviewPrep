@@ -1,6 +1,6 @@
 /*
 
-Given a string which consists of lowercase or uppercase letters, 
+Given a string which consists of lowercase or uppercase letters,
 find the length of the longest palindromes that can be built with those letters.
 
 This is case sensitive, for example "Aa" is not considered a palindrome here.
@@ -25,22 +25,14 @@ public class Solution {
 		int count = 0;
 
 		for(int i = 0; i < s.length(); i++) {
-
 			if(!map.containsKey(s.charAt(i))) {
-
 				map.put(s.charAt(i), (int)(s.charAt(i)));
-
 			}
-
 			else {
-
 				map.remove(s.charAt(i));
 				count++;
-
 			}
-
 		}
-
 
 		return map.isEmpty() ? count * 2 : count * 2 + 1;
 
@@ -49,4 +41,3 @@ public class Solution {
 }
 
 //1	2	2	1	3
-

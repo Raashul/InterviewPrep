@@ -1,42 +1,30 @@
-  /*
-  
-    tight bound run time - O(n + km)
+/**
+* Definition for a binary tree node.
+* public class TreeNode {
+*     int val;
+*     TreeNode left;
+*     TreeNode right;
+*     TreeNode(int x) { val = x; }
+* }
+*/
+class Solution {
+  public boolean isSubtree(TreeNode s, TreeNode t) {
+    if(s == null) return false;
+    if(t == null) return false;
 
-  */
-
-  boolean containsTree(TreeNode t1, TreeNode t2){
-    if(t2 ==  null){
-      return false;
+    if(isIdentical(s, t)){
+      return true;
     }
-    return checkSubTree(t1, t2);
+
+    return isSubtree(s.left, t) || isSubtree(s.right, t);
+
   }
-  
-  boolean checkSubTree(TreeNode t1, TreeNode t2){
-    if(t1== null){
-      return false;
-    }
-    
-    if(t1.data == t2.data){
-      matchTrees(t1,t2);
-    }
-  }
-  
- boolean matchTrees(TreeNode t1, TreeNode t2){
-  
-   if(t1 == null && t2 == null){
-    return true;
-   }
-   
-   if(t1 == null || t2 == null){
-    return false;
-   }
-   
-   if(t1.data != t2.data){
-    return false;
-   }
-   
-   return matchTree(t1.left, t2.left) && matchTree(t1.right, t2.right);
- 
- }
+  public boolean isIdentical(TreeNode s, TreeNode t){
+    if(s == null && t == null) return true;
 
-  
+    if(s == null || t == null) return false;
+
+    return (s.val == t.val) && isIdentical(s.left, t.left) && isIdentical(s.right, t.right);
+
+  }
+}

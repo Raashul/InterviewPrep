@@ -8,6 +8,7 @@ import java.util.*;
   public static void main(String[] args){
     int[] arr = {1,3,5};
     int[] arr1 = {2,10,12,100,140};
+
     /*
     index = 7
     target = 8

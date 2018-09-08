@@ -2,7 +2,7 @@
 // that sums to k. If there isn't one, return 0 instead.
 
 // Note:
-//The sum of the entire nums array is guaranteed to fit within the 32-bit signed 
+//The sum of the entire nums array is guaranteed to fit within the 32-bit signed
 //integer range.
 
 // Example 1:
@@ -17,23 +17,30 @@
 // Can you do it in O(n) time?
 
 
-public int maxSizeSubArr(int [] arr, int target){
-  if(arr.length == 0)
-    return 0;
+public int maxSubArrayLen(int[] nums, int k) {
+    HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 
-  HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-  map.put(0, -1);
+    int max = 0;
+    int sum=0;
+    
+    for(int i=0; i<nums.length; i++){
+        sum += nums[i];
 
-  int total, max = 0;
+        if(sum==k){
+            max = Math.max(max, i+1);
+        }
 
-  for(int i=0; i < arr.length; i++){
-    total += arr[i];
+        int diff = sum-k;
 
-    if(map.contains(total - target))
-      max = Math.max(max, i - map.get(total - target));
-    if(!map.contains(total))
-      map.put(total, i);
-  }
-  return max;
+        if(map.containsKey(diff)){
+            max = Math.max(max, i-map.get(diff));
+        }
 
+        if(!map.containsKey(sum)){
+            map.put(sum, i);
+        }
+    }
+
+
+    return max;
 }

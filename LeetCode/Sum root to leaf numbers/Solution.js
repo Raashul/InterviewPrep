@@ -58,21 +58,57 @@ class Solution {
 
 //Recursive approach
 
-class Solution {
-  int sum= 0;
+import java.util.*;
 
-  public int sumPath(TreeNode root){
-    return sumPath(root, 0);
+
+class Node{
+  int data;
+  Node left, right;
+
+  Node(int val){
+    data = val;
+    left = right = null;
+  }
+}
+
+class Solution{
+
+  Node root;
+
+  int sumToLeaf(Node root){
+    return sumToLeaf(root, 0);
   }
 
-  public int sumPath(TreeNode node, int sum){
-    if(node == null){
+  int sumToLeaf(Node root, int sum){
+
+    if(root == null){
       return 0;
     }
-    if(node.left == null && node.right == null){
-      sum += sum * 10 + node.val;
+
+    sum = sum * 10 + root.data;
+
+    if(root.left == null && root.right == null){
+      return sum;
     }
-    return sumPath(root.left, sum * 10+ root.val) + sumPath(root.right, sum * 10+ root.val)
+
+    return sumToLeaf(root.left, sum) + sumToLeaf(root.right, sum);
+
+
   }
+
+
+  public static void main(String[] args){
+    Solution tree = new Solution();
+    tree.root = new Node(4);
+    tree.root.left = new Node(9);
+    tree.root.right= new Node(0);
+    tree.root.left.left = new Node(5);
+    tree.root.left.right = new Node(1);
+
+    System.out.println(tree.sumToLeaf(tree.root));
+
+  }
+
+
 
 }

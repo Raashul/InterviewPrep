@@ -1,43 +1,37 @@
-public int romanToInt(String s) {
+class Solution {
+  public int romanToInt(String s) {
+    int res = 0;
+    for(int i =0; i < s.length()-1; i++){
+      int curr = getVal(s.charAt(i));
+      int next = getVal(s.charAt(i+1));
 
-    int nums[]=new int[s.length()];
-    //DCXXI
-    for(int i=0;i<s.length();i++){
-
-        switch (s.charAt(i)){
-            case 'M':
-                nums[i]=1000;
-                break;
-            case 'D':
-                nums[i]=500;
-                break;
-            case 'C':
-                nums[i]=100;
-                break;
-            case 'L':
-                nums[i]=50;
-                break;
-            case 'X' :
-                nums[i]=10;
-                break;
-            case 'V':
-                nums[i]=5;
-                break;
-            case 'I':
-                nums[i]=1;
-                break;
-        }
+      if(curr < next){
+        res -= curr;
+      }
+      else{
+        res += curr;
+      }
     }
+    return res + getVal(s.charAt(s.length()-1));
+  }
 
-    int sum=0;
-//s = IX
-//num = [1, 10]
-//sum = -1 + 10 = 9
-    for(int i=0;i<nums.length-1;i++){
-        if(nums[i]<nums[i+1])
-            sum -= nums[i];
-        else
-            sum += nums[i];
+  public int getVal(char c){
+    switch(c){
+      case 'M':
+        return 1000;
+      case 'D':
+        return 500;
+      case 'C':
+        return 100;
+      case 'L':
+        return 50;
+      case 'X':
+        return 10;
+      case 'V':
+        return 5;
+      case 'I':
+        return 1;
     }
-    return sum+nums[nums.length-1];
+    throw new IllegalArgumentException();
+  }
 }

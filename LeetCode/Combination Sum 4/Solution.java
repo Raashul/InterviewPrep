@@ -1,4 +1,4 @@
-// Given an integer array with all positive numbers and no duplicates, 
+// Given an integer array with all positive numbers and no duplicates,
 //find the number of possible combinations that add up to a positive integer target.
 
 // Example:
@@ -50,7 +50,7 @@ class Solution {
     }
     for(int i =0; i < nums.length; i++){
       if(target >= nums[i]){
-        res += helper(nums, target, dp);
+        res += helper(nums, target - nums[i], dp);
       }
     }
     dp[target] = res;

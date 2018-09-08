@@ -1,41 +1,33 @@
-/**
- * Given a set of candidate numbers (C) and a target number (T), find all unique 
- combinations in C where the candidate numbers sums to T.
- * The same repeated number may be chosen from C unlimited number of times.
- * Note:
- *      All numbers (including target) will be positive integers.
- *      Elements in a combination (a1, a2, … , ak) must be in non-descending order. 
- (ie, a1 ≤ a2 ≤ … ≤ ak).
+//candidates = [2,3,6,7], target = 7,
+import java.util.*;
 
- * The solution set must not contain duplicate combinations.
+class Solution{
 
- * For example, given candidate set 2,3,6,7 and target 7, 
- * A solution set is: 
- * [7] 
- * [2, 2, 3] 
- */
- 
-public class Solution {
-  public ArrayList<ArrayList<Integer>> combinationSum(int[] candidates, int target) {
-    ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-    Arrays.sort(candidates);
-    helper(candidates, 0, target, new ArrayList<Integer>(), res);
+  public static void main(String[] args){
+    int[] a = {2,3,5};
+    int target = 8;
+
+    System.out.println(combinationSum(a, target));
+  }
+
+  public static ArrayList<ArrayList<Integer>> combinationSum(int[] nums, int target){
+    ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+    Arrays.sort(nums);
+    helper(nums, target, res, new ArrayList<>(), 0);
     return res;
   }
-  
-  public void helper(int[] candidates, int start, int target, ArrayList<Integer> path, ArrayList<ArrayList<Integer>> res){
-    if(target < 0 || start < 0 || start >= candidates.length)
-        return;
-    if(target == 0) {
-        ArrayList<Integer> result = new ArrayList<Integer>(path);
-        res.add(result);
-    }else {
-        for(int i = start; i < candidates.length && candidates[i] <= target; i++){
-            path.add(candidates[i]);
-            helper(candidates, i, target - candidates[i], path, res);
-            path.remove(path.size() - 1); //reset the variable.
-        }
+
+  public static void helper(int[] nums, int target, ArrayList<ArrayList<Integer>> res, ArrayList<Integer> temp, int start){
+
+    if(target < 0) return;
+    if(target == 0) res.add(new ArrayList<>(temp));
+
+    for(int i = start; i < nums.length; i++){
+      temp.add(nums[i]);
+      helper(nums, target - nums[i], res, temp, i); //resuse the same elements
+      temp.remove(temp.size()-1);
     }
+
   }
- 
+
 }

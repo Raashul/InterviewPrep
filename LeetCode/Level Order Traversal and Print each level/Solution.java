@@ -1,12 +1,6 @@
-
-
 import java.io.*;
 import java.util.*;
 
-/*
-  Given a sorted array of strings which is interspersed with empty strings, write a
-  method to find the location of given string.
-*/
 
 class Node{
   int data;
@@ -41,7 +35,7 @@ public class Solution {
     if(root == null) return;
     q.add(root);
     while(!q.isEmpty()){
-      levelNodes = q.size();           
+      levelNodes = q.size();
       while(levelNodes > 0){
         Node n = q.remove();
         System.out.print(" " + n.data);

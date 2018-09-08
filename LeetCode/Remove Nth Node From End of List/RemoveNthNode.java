@@ -1,30 +1,51 @@
-/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
+class Node{
+  int value;
+  Node next;
+  Node(int data){
+    value = data;
+    next = null;
+  }
+}
 
-public class RemoveNthNode{
-	public ListNode NthNodeFromLast(ListNode head, int n){
-		ListNode slow = head, fast = head;
+class Solution{
 
-		for(int i =0; i < n+1; i++){
-			fast = fast.next;
-			if(fast == null){
-				//Removes the head of the linkedlist
-				slow.next = null;
-				return null;
-			}
-		}
-		while(fast.next != null){
-			fast = fast.next;
-			slow = slow.next;
-		}
-		slow.next = slow.next.next;
-		return head;
+  Node head;
 
-	}
+  public void push(int d){
+    Node node = new Node(d);
+    node.next = head;
+    head = node;
+  }
+
+  public int removeFromEnd(int n){
+    Node fast = head, slow = head;
+    for(int i =0; i < n; i++){
+      fast = fast.next;
+      if(fast.next == null){
+        head = head.next;
+        return head.value;
+      }
+    }
+
+    while(fast.next != null){
+      slow = slow.next;
+      fast = fast.next;
+    }
+    slow.next = slow.next.next;
+    Node r = slow.next;
+    return r.value;
+
+  }
+
+  public static void main(String[] args){
+    Solution linkedList = new Solution();
+    linkedList.push(5);
+    linkedList.push(4);
+    linkedList.push(3);
+    linkedList.push(2);
+    linkedList.push(1);
+
+    System.out.println(linkedList.removeFromEnd(5));
+  }
+
 }

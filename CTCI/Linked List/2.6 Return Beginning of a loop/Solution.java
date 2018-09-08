@@ -21,8 +21,8 @@ public class Solution{
 		while(slow != fast){
 			slow = slow.next;
 			fast = fast.next;
-			
-		}f
+
+		}
 		return fast;
 	}
-}	
+}
