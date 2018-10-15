@@ -1,37 +1,46 @@
-/*
-	The min/max approach
-	Check if root falls inside the range Integer.MIN - Integer.MAX
-	Update the min/max value as your progress into the tree
-
-																	20    min = Integer.MIN, max=Integer.MAX
-																	/  \
-		min = Integer.MIN,max= 20 <-10    30 
-																/    		\
-															5    			15  -> min=30, max=Integer.MAX
-														/  \     			\
-													3     7     		17			  
-
-*/
-
-public class BinarySearch{
-	boolean checkBST(TreeNode root){
-		checkBST(root, Integer.MIN, Integer.MAX);
-	}
-
-	boolean checkBST(TreeNode root, min, max){
-		if(root == null) return true;
-
-		if(root.data > max || root.data < min)
-			return false;
-
-		/* Duplicated allowed */
-
-		if(!checkBST(root.left, min, root.data) || !checkBST(root.right, root.data, max)){
-			return false;
-		}
-		return true;
-
-
-	}
+import java.util.*;
+class Node{
+  int data;
+  Node left;
+  Node right;
+  Node(int data){
+    this.data= data;
+    left = right = null;
+  }
 }
 
+
+
+class Main {
+  Node root;
+  public static void main(String[] args) {
+    Main binaryTree = new Main();
+    binaryTree.root = new Node(20);
+    binaryTree.root.left = new Node(15);
+    binaryTree.root.right = new Node(25);
+    binaryTree.root.left.left = new Node(10);
+    binaryTree.root.left.right = new Node(17);
+    binaryTree.root.right.left = new Node(22);
+    binaryTree.root.right.left.left = new Node(21);
+
+    System.out.println(binaryTree.checkBinaryTree(binaryTree.root));
+  }
+
+  boolean checkBinaryTree(Node root){
+    int max = Integer.MAX_VALUE;
+    int min = Integer.MIN_VALUE;
+
+    return checkBinaryTree(root, max, min);
+  }
+
+  boolean checkBinaryTree(Node root, int max, int min){
+    if(root == null) return true;
+    if(root.data > max || root.data < min) return false;
+
+    return checkBinaryTree(root.left, root.data, min) && checkBinaryTree(root.right, max, root.data);
+
+  }
+
+
+
+}

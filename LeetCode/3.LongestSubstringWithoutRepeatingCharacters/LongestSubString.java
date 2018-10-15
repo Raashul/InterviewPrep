@@ -1,54 +1,57 @@
-import java.util.HashMap;
-import java.util.Map;
+/*
+At worse case, each node is visited twice
+O(2n)
 
-public class longestSubString{
-
-  public static int lengthOfLongestString(String s){
-    int length = s.length(), count =0;
-
-    Map<Character, Integer> map = new HashMap<>();
-
-    for(int i=0, j=0; j < length; j++){
-      char c = s.charAt(j);
-      if(map.containsKey(c)){
-        i = Math.max(map.get(c), i);
+*/
+public class Solution {
+  public int lengthOfLongestSubstring(String s) {
+    int n = s.length();
+    Set<Character> set = new HashSet<>();
+    int ans = 0, i = 0, j = 0;
+    while (i < n && j < n) {
+      // try to extend the range [i, j]
+      if (!set.contains(s.charAt(j))){
+        set.add(s.charAt(j++));
+        ans = Math.max(ans, j - i);
       }
-      count = Math.max(count, j - i + 1);
-
-
-      map.put(c, j + 1);
-    }
-    return count;
-
-  }
-
-
-  public static int lengthOfLongestString1(String s){
-
-    int i=0, j =0, max = 0;
-    HashSet<Character> set = new HashSet<Character>();
-
-    while(j < s.length()){
-      if(!set.contains(s.charAt(j))){
-        set.add(s.charAt(j));
-        j++;
-        max = Math.max(max, j - i);
-      }
-      else{
-        set.remove(s.charAt(i));
-        i++;
+      else {
+        set.remove(s.charAt(i++));
       }
     }
-    return max;
-
+    return ans;
   }
+}
 
 
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length() == 0 || s.length() == 1) return s.length();
 
-  public static void main(String [] args){
-    System.out.println(lengthOfLongestString("abcabcbb"));
-    System.out.println(lengthOfLongestString1("abcabcbb"));
+        int index1 = 0;
+        int index2 = 0;
+        int length = 0;
+        int max_length = 1;
+        int[] arr = new int[128];
 
-  }
+        while((index1 < s.length()) && (index2 < s.length())){
+            char c = s.charAt(index2);
 
+            if(arr[c] == 0){
+                arr[c] = 1;
+                index2++;
+                length++;
+            }
+            else{
+                if(length > max_length){
+                    max_length = length;
+                }
+
+                if(index1 != index2) arr[s.charAt(index1)] = 0;
+                index1++;
+                length--;
+            }
+        }
+
+        return ((index2 - index1) > max_length) ? (index2 - index1) : max_length;
+    }
 }

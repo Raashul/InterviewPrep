@@ -35,6 +35,7 @@ class Solution {
           left = mid + 1;
         }
       }
+
       else if(nums[mid] < target){
         if(isLeft){
           left = mid + 1;
@@ -43,6 +44,7 @@ class Solution {
           left = mid;
         }
       }
+
       else{
         right = mid;
       }

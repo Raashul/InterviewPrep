@@ -3,8 +3,8 @@ public class MyClass {
        int[] arr = {-3,-5,-2,-7,-6};
         System.out.println(findMissingNum(arr));
     }
-    
-  public static int findMissingNum(int[] arr){ 
+
+  public static int findMissingNum(int[] arr){
 		if(arr.length == 0 || arr.length == 1)
 			return -1;
 		int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;
@@ -24,5 +24,3 @@ public class MyClass {
 
     }
 }
-
-

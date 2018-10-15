@@ -64,3 +64,54 @@ class Solution {
 	}
 
 }
+
+
+import java.util.*;
+class Node{
+  int data;
+  Node left;
+  Node right;
+  Node(int data){
+    this.data= data;
+    left = right = null;
+  }
+}
+
+class Main {
+  Node root;
+
+  int res = -1;
+  int maxLevel = Integer.MIN_VALUE;
+
+  public static void main(String[] args) {
+    Main binaryTree = new Main();
+    binaryTree.root = new Node(20);
+    binaryTree.root.left = new Node(15);
+    binaryTree.root.right = new Node(25);
+    binaryTree.root.left.left = new Node(10);
+    binaryTree.root.left.right = new Node(17);
+    binaryTree.root.right.left = new Node(22);
+    binaryTree.root.right.left.left = new Node(21);
+    binaryTree.root.right.left.left.right = new Node(1);
+
+    System.out.println(binaryTree.findBottomLeftTree(binaryTree.root));
+  }
+
+  int findBottomLeftTree(Node root){
+    if(root == null) return -1;
+    int level = 1;
+    helper(root, level);
+    return res;
+  }
+
+  void helper(Node root, int level){
+    if(root == null) return;
+    if(root.left == null && root.right == null && level > maxLevel){
+      level = maxLevel;
+      res = root.data;
+    }
+    helper(root.left, level+1);
+    helper(root.right, level+1);
+  }
+
+}

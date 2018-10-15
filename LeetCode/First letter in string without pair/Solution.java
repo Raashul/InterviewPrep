@@ -58,6 +58,14 @@ class Main
 		getCharCountArray(str);
 		int result = Integer.MAX_VALUE, i;
 
+		/*
+			leetcode
+			l - (0,1)
+			e- (1,3)
+			t - (3,1)
+
+		*/
+
 		for (i = 0; i < str.length(); i++)
 		{
 			// If this character occurs only once and appears

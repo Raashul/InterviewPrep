@@ -1,37 +1,46 @@
-public class Solution{
+class Solution {
+  public int[] searchRange(int[] nums, int target) {
+    int leftIndex = findIndex(nums, target, true);
+    int[] res = {-1,-1};
+    if(leftIndex == -1){
+      return res;
+    }
+    int rightIndex = findIndex(nums, target, false);
+    res[0] = leftIndex;
+    res[1] = rightIndex;
+    return res;
+  }
 
-	public static vector<int>  searchForRange(int[] arr, int n, int target){
-		int i =0, j = n-1;
-		vector<int> ret(2,-1);
+  public int findIndex(int[] nums, int target, boolean isLeft){
+    int left = 0;
+    int right = nums.length;
+    int index = -1;
 
-		while(i<j){
-			int mid = (i + j ) /2;
-			if(arr[mid] < target)
-				i = mid + 1;
-			else
-				j = mid;
-		}
+    while(left < right){
+      int mid = left + (right - left) / 2;
+      if(nums[mid] == target){
+        index = mid;
+        if(isLeft){
+          right = mid;
+        }
+        else{
+          left = mid + 1;
+        }
+      }
 
-		if(arr[i] != target)
-			return ret;
-		else
-			ret[0] = i;
+      else if(nums[mid] < target){
+        if(isLeft){
+          left = mid + 1;
+        }
+        else{
+          left = mid;
+        }
+      }
 
-		j = n -1;
-		while(i<j){
-			int mid = (i+j)/2 +1;
-			if(arr[mid] > target)
-				j = mid -1;
-			else
-				i=mid;
-		}
-		ret[1] = j;
-		return ret;
-	}
-
-	public static void main(String[] args){
-		int arr = {5,6,7,7,8,8,10};
-		System.out.println(searchForRange(arr, 8));
-	}
+      else{
+        right = mid;
+      }
+    }
+    return index;
+  }
 }
-

@@ -7,23 +7,43 @@
 *     TreeNode(int x) { val = x; }
 * }
 */
-class Solution {
-  public List<List<Integer>> levelOrder(TreeNode root) {
+import java.util.*;
 
+class Node{
+  int val;
+  Node left;
+  Node right;
+  Node(int data){
+    val = data;
+    left = right = null;
+  }
+}
 
-    List<List<Integer>> res = new ArrayList<List<Integer>>();
-      if(root == null){
-      return res;
-    }
-    Queue<TreeNode> queue = new LinkedList<TreeNode>();
+class Main {
+  Node root;
+  public static void main(String[] args) {
+    Main tree = new Main();
+    tree.root = new Node(3);
+    tree.root.left = new Node(9);
+    tree.root.right = new Node(20);
+    tree.root.right.left = new Node(15);
+    tree.root.right.right = new Node(7);
+    System.out.println(tree.binaryLevelOrder(tree.root));
+  }
+
+  public ArrayList<ArrayList<Integer>> binaryLevelOrder(Node root){
+    ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+    LinkedList<Node> queue = new LinkedList<Node>();
+
+    if(root == null) return res;
+
     queue.add(root);
 
     while(!queue.isEmpty()){
-      List<Integer> temp = new ArrayList<Integer>();
+      ArrayList<Integer> temp = new ArrayList<>();
       int level = queue.size();
-
-      for(int i =0; i < level; i++){
-        TreeNode curr = queue.poll();
+      for(int i =0; i <level; i++){
+        Node curr = queue.remove();
         if(curr.left != null){
           queue.add(curr.left);
         }
@@ -34,8 +54,11 @@ class Solution {
       }
       res.add(temp);
     }
+
     return res;
   }
+
+
 }
 
 
