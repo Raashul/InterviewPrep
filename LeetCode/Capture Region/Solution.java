@@ -1,37 +1,5 @@
 public class Solution {
 
-    private void mark(ArrayList<ArrayList<Character>> board, int i, int j) {
-        int m = board.size();
-        int n = board.get(0).size();
-
-        if (i+1 < m) {
-            if (board.get(i+1).get(j) == 'O') {
-                board.get(i+1).set(j, '1');
-                mark(board, i+1, j);
-            }
-        }
-
-        if (j+1 < n) {
-            if (board.get(i).get(j+1) == 'O') {
-                board.get(i).set(j+1, '1');
-                mark(board, i, j+1);
-            }
-        }
-
-        if (i-1 >= 0) {
-            if (board.get(i-1).get(j) == 'O') {
-                board.get(i-1).set(j, '1');
-                mark(board, i-1, j);
-            }
-        }
-
-        if (j-1 >= 0) {
-            if (board.get(i).get(j-1) == 'O') {
-                board.get(i).set(j-1, '1');
-                mark(board, i, j-1);
-            }
-        }
-    }
 
     public void solve(ArrayList<ArrayList<Character>> board) {
         int m = board.size();
