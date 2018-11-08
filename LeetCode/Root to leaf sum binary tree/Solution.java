@@ -21,7 +21,7 @@ public class Solution{
 			result.add(root);
 			return true;
 		}
-		
+
 		if(sum(root.right, target-root.right, result)){
 			result.add(root);
 			return true;

@@ -60,7 +60,6 @@ class Solution {
 
 import java.util.*;
 
-
 class Node{
   int data;
   Node left, right;
@@ -84,16 +83,12 @@ class Solution{
     if(root == null){
       return 0;
     }
-
     sum = sum * 10 + root.data;
-
+`
     if(root.left == null && root.right == null){
       return sum;
     }
-
     return sumToLeaf(root.left, sum) + sumToLeaf(root.right, sum);
-
-
   }
 
 
@@ -108,7 +103,45 @@ class Solution{
     System.out.println(tree.sumToLeaf(tree.root));
 
   }
-
-
-
 }
+
+
+/**
+ * Definition for binary tree
+ * class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) {
+ *      val = x;
+ *      left=null;
+ *      right=null;
+ *     }
+ * }
+ */
+public class Solution {
+        private int  sumN;
+
+    public int sumNumbers(TreeNode A) {
+        sumN = 0;
+        sumHelper(A, 0);
+        return sumN;
+    }
+    
+    public void sumHelper(TreeNode root, int currentSum){
+        if(root == null)return;
+        currentSum = (currentSum*10 + root.val) % 1003;
+        if(root.left == null && root.right == null)
+        {
+            sumN += currentSum;
+            sumN %=  1003;
+            return;
+        }
+
+        sumHelper(root.left, currentSum);
+        sumHelper(root.right, currentSum);
+    }
+}
+
+
+

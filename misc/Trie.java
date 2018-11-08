@@ -73,7 +73,7 @@ class TrieNode{
   HashMap<Character, TrieNode> children = new HashMap<Character, TrieNode>();
   boolean isLeaf;
   public TrieNode(){}
-  public TrieNode(){
+  public TrieNode(c){
     this.c = c;
   }
 }

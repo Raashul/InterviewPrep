@@ -39,5 +39,38 @@ class Solution{
 
   }
 
+  //iterative
+
+    public int closestBinarySearchVal(Node root, int target){
+      int min = Math.MAX_VALUE;
+      int diff = 0;
+      int res = root.val;
+
+      while(root != null){
+        if(root.val < target){
+          diff = Math.abs(root.val - target);
+          if(diff < min){
+            min = diff;
+            res = root.val;
+          }
+
+          root = root.right;
+        }
+        else if(root.val > target){
+          diff = Math.abs(root.val - target);
+          if(diff < min){
+            min = diff;
+            res = root.val;
+          }
+          root = root.left;
+        }
+        else{
+          return root.val;
+        }
+      }
+
+      return res;
+    }
+
 
 }
