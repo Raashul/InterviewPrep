@@ -19,6 +19,9 @@ Find the total sum of all root-to-leaf numbers.
 * }
 */
 
+// he above code is a simple preorder traversal code which visits every exactly once. 
+// Therefore, the time complexity is O(n) where n is the number of nodes in the given binary tree.
+
 //Iterative method
 class Solution {
   int sum= 0;

@@ -76,3 +76,24 @@ class Solution {
 // Time complexity : O(n). Size of recursion tree can go upto nn.
 
 // Space complexity : O(n). The depth of recursion tree can go upto nn.
+
+
+class Solution {
+  public int climbStairs(int n) {
+    HashMap<Integer, Integer> map = new HashMap<>();
+    return helper(n, map);
+  }
+  
+  public int helper(int n, HashMap<Integer, Integer> map) {
+    if(n < 0) return 0;
+    
+    if(map.containsKey(n)) return map.get(n);
+    
+    if(n == 0) return 1;
+    
+    int val = helper(n-1, map) + helper(n-2, map);
+    map.put(n, val);
+    
+    return map.get(n);  
+  }
+}

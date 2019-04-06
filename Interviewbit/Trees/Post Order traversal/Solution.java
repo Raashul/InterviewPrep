@@ -55,7 +55,7 @@ public ArrayList<Integer> postorderTraversal(TreeNode root){
   while(!st.isEmpty() || root != null){
     if(root != null){
       st.push(root);
-      root = curr.left;
+      root = root.left;
     }
     else {
       TreeNode peakNode = st.peek();
